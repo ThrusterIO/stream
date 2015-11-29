@@ -1,0 +1,34 @@
+{
+    "name": "thruster/stream",
+    "type": "library",
+    "description": "Thruster Steam Component",
+    "keywords": ["stream", "thruster"],
+    "homepage": "https://thruster.io",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aurimas Niekis",
+            "email": "aurimas@niekis.lt"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "thruster/event-loop": "~1.0",
+        "thruster/event-emitter": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.0"
+    },
+    "autoload": {
+        "psr-4": { "Thruster\\Component\\Stream\\": "src" }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-ci": "vendor/bin/phpunit -c phpunit.xml.ci"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
