@@ -244,4 +244,12 @@ class Stream implements DuplexStreamInterface
 
         return $this;
     }
+
+    /**
+     * @return resource
+     */
+    public function getStream()
+    {
+        return $this->stream;
+    }
 }
