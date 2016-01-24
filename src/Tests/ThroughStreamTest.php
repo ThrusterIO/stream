@@ -126,8 +126,8 @@ class ThroughStreamTest extends TestCase
         $mock = $this->createCallableMock();
 
         $mock->expects($this->once())
-            ->method('someMethod');
+            ->method(TestCase::MOCK_FUNCTION);
 
-        return [$mock, 'someMethod'];
+        return $this->getCallable($mock);
     }
 }

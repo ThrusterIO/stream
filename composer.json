@@ -13,6 +13,7 @@
     ],
     "require": {
         "php": ">=7.0",
+        "thruster/promise": "~1.0",
         "thruster/event-loop": "~1.0",
         "thruster/event-emitter": "~1.0"
     },

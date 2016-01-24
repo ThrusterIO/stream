@@ -10,15 +10,16 @@ namespace Thruster\Component\Stream\Tests;
  */
 class TestCase extends \PHPUnit_Framework_TestCase
 {
-    protected function expectCallableExactly($amount)
+    const MOCK_FUNCTION = 'mockFunction';
+
+    public function expectCallableExactly($amount)
     {
         $mock = $this->createCallableMock();
-
         $mock
             ->expects($this->exactly($amount))
-            ->method('someMethod');
+            ->method(static::MOCK_FUNCTION);
 
-        return [$mock, 'someMethod'];
+        return $this->getCallable($mock);
     }
 
     protected function expectCallableOnce()
@@ -26,9 +27,9 @@ class TestCase extends \PHPUnit_Framework_TestCase
         $mock = $this->createCallableMock();
 
         $mock->expects($this->once())
-            ->method('someMethod');
+            ->method(static::MOCK_FUNCTION);
 
-        return [$mock, 'someMethod'];
+        return $this->getCallable($mock);
     }
 
     protected function expectCallableNever()
@@ -37,17 +38,22 @@ class TestCase extends \PHPUnit_Framework_TestCase
 
         $mock
             ->expects($this->never())
-            ->method('someMethod');
+            ->method(static::MOCK_FUNCTION);
 
-        return [$mock, 'someMethod'];
+        return $this->getCallable($mock);
     }
 
-    protected function createCallableMock()
+    public function createCallableMock()
     {
         return $this->getMock(__CLASS__);
     }
 
-    public function someMethod()
+    public function getCallable($mock)
+    {
+        return [$mock, static::MOCK_FUNCTION];
+    }
+
+    public function mockFunction()
     {
     }
 }
